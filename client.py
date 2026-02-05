@@ -47,6 +47,8 @@ class PhantombusterClient:
         if not hasattr(self, '_initialized'):
             if config is None:
                 raise ValueError("Configuration must be provided for the first client initialization.")
+            # Debug print to trace init hangs
+            print("PhantombusterClient: initializing...", flush=True)
             self.config = config
             self._base_url_v1 = self.config.base_url_v1
             self._base_url_v2 = self.config.base_url_v2
@@ -71,6 +73,7 @@ class PhantombusterClient:
             self._ai_api = AIAPI(self)
             self._v1_api = V1API(self)
             self._initialized = True
+            print("PhantombusterClient: initialized.", flush=True)
 
     @classmethod
     def get_instance(cls, config: PhantombusterConfig | None = None) -> 'PhantombusterClient':

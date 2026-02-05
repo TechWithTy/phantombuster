@@ -3,7 +3,7 @@ Global Pydantic models for the PhantomBuster SDK.
 """
 
 from pydantic import BaseModel, Field
-from typing import List
+from typing import Any, List
 
 class Branch(BaseModel):
     """Represents a single PhantomBuster branch."""
